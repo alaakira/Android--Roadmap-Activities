@@ -1,9 +1,11 @@
 package com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 import com.alaaibrahim.activities_roadmap.R
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.ACTIVITY_NAME_EXTRA
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.BaseActivity
@@ -19,6 +21,15 @@ class ActivityA: BaseActivity() {
 
     override val primaryTag: String = javaClass.simpleName
 
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                it.data?.getStringExtra(Loggers.ACTIVITY_RESULT_LOGGER_TAG)?.let { message ->
+                    Loggers.logI(javaClass.simpleName, Loggers.ACTIVITY_RESULT_LOGGER_TAG, message)
+                }
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_a)
@@ -31,7 +42,7 @@ class ActivityA: BaseActivity() {
             .setOnClickListener {
                 val bIntent = ActivityB.getIntent(this)
                 wrapActivityName(bIntent)
-                startActivity(bIntent)
+                resultLauncher.launch(bIntent)
             }
     }
 

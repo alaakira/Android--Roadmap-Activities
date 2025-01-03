@@ -10,6 +10,7 @@ import com.alaaibrahim.activities_roadmap.presentation.screens.activities.BaseAc
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a.ActivityA
 import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers
 import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers.ACTIVITY_MESSAGE_LOGGER_TAG
+import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers.ACTIVITY_RESULT_LOGGER_TAG
 
 class ActivityB : BaseActivity() {
 
@@ -39,6 +40,7 @@ class ActivityB : BaseActivity() {
     private fun setListeners() {
 
         findViewById<Button>(R.id.activityB_backBtn).setOnClickListener {
+            returnResult()
             onBackPressedDispatcher.onBackPressed()
         }
 
@@ -47,6 +49,12 @@ class ActivityB : BaseActivity() {
             wrapActivityName(aIntent)
             startActivity(aIntent)
         }
+    }
+
+    private fun returnResult() {
+        setResult(RESULT_OK, Intent().apply {
+            putExtra(ACTIVITY_RESULT_LOGGER_TAG, "DONE")
+        })
     }
 
     private fun wrapActivityName(nextIntent: Intent) {
