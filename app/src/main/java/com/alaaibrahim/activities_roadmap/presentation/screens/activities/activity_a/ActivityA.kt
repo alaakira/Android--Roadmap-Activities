@@ -40,6 +40,7 @@ class ActivityA: BaseActivity() {
             getStringExtra(ACTIVITY_NAME_EXTRA)?.let { message ->
                 Loggers.logI(javaClass.simpleName, Loggers.ACTIVITY_MESSAGE_LOGGER_TAG, message)
             }
+            removeExtra(ACTIVITY_NAME_EXTRA)
         }
     }
 

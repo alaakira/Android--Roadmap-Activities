@@ -32,6 +32,7 @@ class ActivityB : BaseActivity() {
             getStringExtra(ACTIVITY_NAME_EXTRA)?.let { message ->
                 Loggers.logI(javaClass.simpleName, ACTIVITY_MESSAGE_LOGGER_TAG, message)
             }
+            removeExtra(ACTIVITY_NAME_EXTRA)
         }
     }
 
