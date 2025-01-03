@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Activities Roadmap</string>
     <string name="activity_a_label">Activity A</string>
+    <string name="activity_b_label">Activity B</string>
     <string name="next_screen">Next Screen</string>
+    <string name="back_btn_label">Back</string>
 </resources>
