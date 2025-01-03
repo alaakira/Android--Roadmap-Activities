@@ -1,4 +1,4 @@
-package com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a
+package com.alaaibrahim.activities_roadmap.presentation.screens.activities.single_top
 
 import android.content.Context
 import android.content.Intent
@@ -7,12 +7,11 @@ import android.widget.Button
 import com.alaaibrahim.activities_roadmap.R
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.BaseActivity
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_b.ActivityB
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.single_top.SingleTopActivity
 
-class ActivityA: BaseActivity() {
+class SingleTopActivity : BaseActivity() {
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, ActivityA::class.java)
+        fun getIntent(context: Context) = Intent(context, SingleTopActivity::class.java)
 
     }
 
@@ -20,27 +19,26 @@ class ActivityA: BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_a)
+        setContentView(R.layout.activity_single_top)
         setListeners()
     }
 
     private fun setListeners() {
-        findViewById<Button>(R.id.activityA_bActivity)
-            .setOnClickListener {
-                val bIntent = ActivityB.getIntent(this)
-                startActivity(bIntent)
-            }
-
-        findViewById<Button>(R.id.activityA_sameActivity)
+        findViewById<Button>(R.id.activitySingleTop_singleTop)
             .setOnClickListener {
                 val intent = getIntent(this)
                 startActivity(intent)
             }
-
-        findViewById<Button>(R.id.activityA_singleTop)
+        findViewById<Button>(R.id.activitySingleTop_bActivity)
             .setOnClickListener {
-                val intent = SingleTopActivity.getIntent(this)
+                val intent = ActivityB.getIntent(this)
+                startActivity(intent)
+            }
+        findViewById<Button>(R.id.activitySingleTop_sameActivity)
+            .setOnClickListener {
+                val intent = getIntent(this)
                 startActivity(intent)
             }
     }
+
 }

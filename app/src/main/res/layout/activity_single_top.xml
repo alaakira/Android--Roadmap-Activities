@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".presentation.screens.activities.activity_b.ActivityB">
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/activityB_sameActivity"
+        android:id="@+id/activitySingleTop_sameActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/same_activity_btn_label" />
 
     <Button
-        android:id="@+id/activityB_aActivity"
+        android:id="@+id/activitySingleTop_bActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/b_activity_btn_label" />
 
     <Button
-        android:id="@+id/activityB_singleTop"
+        android:id="@+id/activitySingleTop_singleTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/single_top_activity_btn_label" />

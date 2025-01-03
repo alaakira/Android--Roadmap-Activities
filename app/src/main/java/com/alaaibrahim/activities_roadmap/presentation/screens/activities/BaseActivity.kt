@@ -1,11 +1,10 @@
 package com.alaaibrahim.activities_roadmap.presentation.screens.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alaaibrahim.activities_roadmap.presentation.ActivityState
 import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers
-
-const val ACTIVITY_NAME_EXTRA = "ACTIVITY_NAME_EXTRA"
 
 abstract class BaseActivity : AppCompatActivity(){
 
@@ -15,6 +14,14 @@ abstract class BaseActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.CREATED.getProcessName())
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        Loggers.logI(
+            primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
+            ActivityState.INTENT_RECEIVED.getProcessName()
+        )
     }
 
     override fun onStart() {

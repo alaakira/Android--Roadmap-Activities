@@ -6,12 +6,24 @@
     android:orientation="vertical"
     android:gravity="center">
 
+
     <Button
-        android:id="@+id/activityA_nextBtn"
+        android:id="@+id/activityA_sameActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_screen"
-        android:layout_margin="@dimen/list_item_spacing"/>
+        android:text="@string/same_activity_btn_label" />
+
+    <Button
+        android:id="@+id/activityA_bActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/b_activity_btn_label" />
+
+    <Button
+        android:id="@+id/activityA_singleTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/single_top_activity_btn_label" />
 
 
 </LinearLayout>

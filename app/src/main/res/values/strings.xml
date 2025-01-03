@@ -2,6 +2,8 @@
     <string name="app_name">Activities Roadmap</string>
     <string name="activity_a_label">Activity A</string>
     <string name="activity_b_label">Activity B</string>
-    <string name="next_screen">Next Screen</string>
-    <string name="back_btn_label">Back</string>
+    <string name="single_top_activity_label">Single Top</string>
+    <string name="same_activity_btn_label">Same Activity</string>
+    <string name="b_activity_btn_label">B Activity</string>
+    <string name="single_top_activity_btn_label">Single Top Activity</string>
 </resources>
