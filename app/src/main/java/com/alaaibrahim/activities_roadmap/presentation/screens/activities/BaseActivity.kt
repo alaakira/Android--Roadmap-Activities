@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alaaibrahim.activities_roadmap.presentation.ActivityState
 import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers
 
+const val ACTIVITY_NAME_EXTRA = "ACTIVITY_NAME_EXTRA"
+
 abstract class BaseActivity : AppCompatActivity(){
 
     abstract val primaryTag: String

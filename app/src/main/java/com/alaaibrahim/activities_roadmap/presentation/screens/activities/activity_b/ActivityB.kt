@@ -5,8 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import com.alaaibrahim.activities_roadmap.R
+import com.alaaibrahim.activities_roadmap.presentation.screens.activities.ACTIVITY_NAME_EXTRA
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.BaseActivity
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a.ActivityA
+import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers
+import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers.ACTIVITY_MESSAGE_LOGGER_TAG
 
 class ActivityB : BaseActivity() {
 
@@ -20,7 +23,16 @@ class ActivityB : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b)
+        readActivityMessages()
         setListeners()
+    }
+
+    private fun readActivityMessages() {
+        intent?.apply {
+            getStringExtra(ACTIVITY_NAME_EXTRA)?.let { message ->
+                Loggers.logI(javaClass.simpleName, ACTIVITY_MESSAGE_LOGGER_TAG, message)
+            }
+        }
     }
 
     private fun setListeners() {
@@ -30,8 +42,15 @@ class ActivityB : BaseActivity() {
         }
 
         findViewById<Button>(R.id.activityB_nextBtn).setOnClickListener {
-            val intent = ActivityA.getIntent(this)
-            startActivity(intent)
+            val aIntent = ActivityA.getIntent(this)
+            wrapActivityName(aIntent)
+            startActivity(aIntent)
+        }
+    }
+
+    private fun wrapActivityName(nextIntent: Intent) {
+        nextIntent.apply {
+            putExtra(ACTIVITY_NAME_EXTRA, this@ActivityB.javaClass.simpleName)
         }
     }
 }
