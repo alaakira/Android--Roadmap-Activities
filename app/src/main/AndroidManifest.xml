@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivitiesRoadmap"
         tools:targetApi="31">
+
         <activity
             android:name=".presentation.screens.activities.activity_a.ActivityA"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/activity_a_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
