@@ -6,4 +6,11 @@
     <string name="same_activity_btn_label">Same Activity</string>
     <string name="b_activity_btn_label">B Activity</string>
     <string name="single_top_activity_btn_label">Single Top Activity</string>
+    <string name="single_instance_per_task_activity_label">Single Instance Per Task</string>
+    <string name="single_instance_activity_label">Single Instance</string>
+    <string name="single_task_activity_label">Single Task</string>
+    <string name="a_activity_btn_label">A Activity</string>
+    <string name="single_instance_per_task_btn_label">Single Instance Per Task</string>
+    <string name="single_instance_btn_label">Single Instance</string>
+    <string name="single_task_btn_label">Signel Task</string>
 </resources>

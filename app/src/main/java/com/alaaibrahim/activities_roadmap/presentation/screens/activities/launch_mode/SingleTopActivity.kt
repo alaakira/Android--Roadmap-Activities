@@ -1,4 +1,4 @@
-package com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a
+package com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode
 
 import android.content.Context
 import android.content.Intent
@@ -6,17 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import com.alaaibrahim.activities_roadmap.R
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.BaseActivity
+import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a.ActivityA
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_b.ActivityB
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleInstanceActivity
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleInstancePerTaskActivity
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleTaskActivity
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleTopActivity
 
-class ActivityA: BaseActivity() {
+class SingleTopActivity : BaseActivity() {
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, ActivityA::class.java)
-
+        fun getIntent(context: Context) = Intent(context, SingleTopActivity::class.java)
     }
 
     override val primaryTag: String = javaClass.simpleName
@@ -30,7 +26,7 @@ class ActivityA: BaseActivity() {
     private fun setListeners() {
         findViewById<Button>(R.id.aActivityBtn)
             .setOnClickListener {
-                val bIntent = getIntent(this)
+                val bIntent = ActivityA.getIntent(this)
                 startActivity(bIntent)
             }
 
@@ -42,7 +38,7 @@ class ActivityA: BaseActivity() {
 
         findViewById<Button>(R.id.singleTopBtn)
             .setOnClickListener {
-                val intent = SingleTopActivity.getIntent(this)
+                val intent = getIntent(this)
                 startActivity(intent)
             }
 
@@ -64,4 +60,5 @@ class ActivityA: BaseActivity() {
                 startActivity(intent)
             }
     }
+
 }

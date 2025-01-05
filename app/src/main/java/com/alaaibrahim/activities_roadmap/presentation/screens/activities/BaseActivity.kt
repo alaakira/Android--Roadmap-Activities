@@ -12,6 +12,7 @@ abstract class BaseActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Loggers.logI(primaryTag, Loggers.ACTIVITY_TASK_ID_LOGGER_TAG, taskId.toString())
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.CREATED.getProcessName())
     }
@@ -56,6 +57,11 @@ abstract class BaseActivity : AppCompatActivity(){
 
     override fun onDestroy() {
         super.onDestroy()
+        Loggers.logI(
+            primaryTag,
+            Loggers.ACTIVITY_TASK_ID_LOGGER_TAG + " - " + ActivityState.DESTROYED.getProcessName(),
+            taskId.toString()
+        )
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.DESTROYED.getProcessName())
     }

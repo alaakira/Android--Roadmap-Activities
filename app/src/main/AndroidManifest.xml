@@ -12,22 +12,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivitiesRoadmap"
         tools:targetApi="31">
-
         <activity
-            android:name=".presentation.screens.activities.single_top.SingleTopActivity"
+            android:name=".presentation.screens.activities.launch_mode.SingleInstancePerTaskActivity"
+            android:exported="false"
+            android:label="@string/single_instance_per_task_activity_label"
+            android:launchMode="singleInstancePerTask" />
+        <activity
+            android:name=".presentation.screens.activities.launch_mode.SingleInstanceActivity"
+            android:exported="false"
+            android:label="@string/single_instance_activity_label"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".presentation.screens.activities.launch_mode.SingleTaskActivity"
+            android:exported="false"
+            android:label="@string/single_task_activity_label"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".presentation.screens.activities.launch_mode.SingleTopActivity"
             android:label="@string/single_top_activity_label"
             android:launchMode="singleTop" />
-
         <activity
             android:name=".presentation.screens.activities.activity_b.ActivityB"
             android:label="@string/activity_b_label" />
-
         <activity
             android:name=".presentation.screens.activities.activity_a.ActivityA"
             android:exported="true"
             android:label="@string/activity_a_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

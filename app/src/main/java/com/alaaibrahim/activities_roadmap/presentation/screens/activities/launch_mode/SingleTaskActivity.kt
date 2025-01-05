@@ -1,4 +1,4 @@
-package com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a
+package com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode
 
 import android.content.Context
 import android.content.Intent
@@ -6,20 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import com.alaaibrahim.activities_roadmap.R
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.BaseActivity
+import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_a.ActivityA
 import com.alaaibrahim.activities_roadmap.presentation.screens.activities.activity_b.ActivityB
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleInstanceActivity
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleInstancePerTaskActivity
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleTaskActivity
-import com.alaaibrahim.activities_roadmap.presentation.screens.activities.launch_mode.SingleTopActivity
 
-class ActivityA: BaseActivity() {
-
-    companion object {
-        fun getIntent(context: Context) = Intent(context, ActivityA::class.java)
-
-    }
+class SingleTaskActivity : BaseActivity() {
 
     override val primaryTag: String = javaClass.simpleName
+
+    companion object {
+        fun getIntent(context: Context) = Intent(context, SingleTaskActivity::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +26,7 @@ class ActivityA: BaseActivity() {
     private fun setListeners() {
         findViewById<Button>(R.id.aActivityBtn)
             .setOnClickListener {
-                val bIntent = getIntent(this)
+                val bIntent = ActivityA.getIntent(this)
                 startActivity(bIntent)
             }
 
@@ -48,7 +44,7 @@ class ActivityA: BaseActivity() {
 
         findViewById<Button>(R.id.singleTaskBtn)
             .setOnClickListener {
-                val intent = SingleTaskActivity.getIntent(this)
+                val intent = getIntent(this)
                 startActivity(intent)
             }
 
@@ -64,4 +60,6 @@ class ActivityA: BaseActivity() {
                 startActivity(intent)
             }
     }
+
+
 }
