@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alaaibrahim.activities_roadmap.presentation.ActivityState
+import com.alaaibrahim.activities_roadmap.presentation.screens.loggers.TaskCounter
 import com.alaaibrahim.activities_roadmap.utils.loggers.Loggers
 
 abstract class BaseActivity : AppCompatActivity(){
@@ -12,6 +13,7 @@ abstract class BaseActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TaskCounter.addTaskConsumer(TaskCounter.TaskConsumer(taskId, primaryTag))
         Loggers.logI(primaryTag, Loggers.ACTIVITY_TASK_ID_LOGGER_TAG, taskId.toString())
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.CREATED.getProcessName())
@@ -27,6 +29,7 @@ abstract class BaseActivity : AppCompatActivity(){
 
     override fun onStart() {
         super.onStart()
+        TaskCounter.printCurrentTask(taskId)
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.STARTED.getProcessName())
     }
@@ -62,6 +65,8 @@ abstract class BaseActivity : AppCompatActivity(){
             Loggers.ACTIVITY_TASK_ID_LOGGER_TAG + " - " + ActivityState.DESTROYED.getProcessName(),
             taskId.toString()
         )
+        TaskCounter.removeTaskConsumer(TaskCounter.TaskConsumer(taskId, primaryTag))
+        TaskCounter.printCurrentTask(-1)
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.DESTROYED.getProcessName())
     }
