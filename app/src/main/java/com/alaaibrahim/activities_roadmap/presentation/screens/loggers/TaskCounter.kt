@@ -40,12 +40,13 @@ object TaskCounter {
         Loggers.logI(javaClass.simpleName, ACTIVITY_TASK_COUNTER_LOGGER_TAG, map.toString())
     }
 
-    data class TaskConsumer(val taskId: Int, val consumerName: String) {
-
-        val creationDate = Date().time
+    data class TaskConsumer(
+        val taskId: Int, val consumerName: String,
+        val creationDate: Long
+    ) {
 
         override fun toString(): String {
-            return consumerName
+            return "$consumerName(${Date(creationDate)})"
         }
 
         override fun equals(other: Any?): Boolean {

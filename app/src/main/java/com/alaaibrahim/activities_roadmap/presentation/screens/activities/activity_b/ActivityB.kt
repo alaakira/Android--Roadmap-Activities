@@ -31,12 +31,14 @@ class ActivityB : BaseActivity() {
         findViewById<Button>(R.id.aActivityBtn)
             .setOnClickListener {
                 val bIntent = ActivityA.getIntent(this)
+                bIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(bIntent)
             }
 
         findViewById<Button>(R.id.bActivityBtn)
             .setOnClickListener {
                 val intent = getIntent(this)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
 

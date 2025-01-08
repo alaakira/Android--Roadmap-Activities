@@ -31,18 +31,21 @@ class ActivityA: BaseActivity() {
         findViewById<Button>(R.id.aActivityBtn)
             .setOnClickListener {
                 val bIntent = getIntent(this)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(bIntent)
             }
 
         findViewById<Button>(R.id.bActivityBtn)
             .setOnClickListener {
                 val intent = ActivityB.getIntent(this)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
 
         findViewById<Button>(R.id.singleTopBtn)
             .setOnClickListener {
                 val intent = SingleTopActivity.getIntent(this)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
 
