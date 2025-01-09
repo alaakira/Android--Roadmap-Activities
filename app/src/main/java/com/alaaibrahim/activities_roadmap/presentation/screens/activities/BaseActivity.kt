@@ -12,10 +12,12 @@ abstract class BaseActivity : AppCompatActivity(){
 
     abstract val primaryTag: String
 
-    val creationDate = Date().time
+    private val creationDate = Date().time
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        lifecycle.addObserver(MyLifecycleObserver())
         TaskCounter.addTaskConsumer(TaskCounter.TaskConsumer(taskId, primaryTag, creationDate))
         Loggers.logI(primaryTag, Loggers.ACTIVITY_TASK_ID_LOGGER_TAG, taskId.toString())
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
