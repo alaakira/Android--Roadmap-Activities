@@ -6,42 +6,58 @@
     android:orientation="vertical"
     android:gravity="center">
 
-
-
-    <Button
-        android:id="@+id/aActivityBtn"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/inputField"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/a_activity_btn_label" />
+        android:autofillHints="emailAddress"
+        android:gravity="center"
+        android:hint="@string/type_here_hint"
+        android:inputType="text" />
 
-    <Button
-        android:id="@+id/bActivityBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/b_activity_btn_label" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <Button
-        android:id="@+id/singleTopBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/single_top_activity_btn_label" />
+        <Button
+            android:id="@+id/aActivityBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/a_activity_btn_label" />
 
-    <Button
-        android:id="@+id/singleTaskBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/single_task_btn_label" />
+        <Button
+            android:id="@+id/bActivityBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b_activity_btn_label" />
 
-    <Button
-        android:id="@+id/singleInstanceBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/single_instance_btn_label" />
+        <Button
+            android:id="@+id/singleTopBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/single_top_activity_btn_label" />
 
-    <Button
-        android:id="@+id/singleInstancePerTaskBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/single_instance_per_task_btn_label" />
+        <Button
+            android:id="@+id/singleTaskBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/single_task_btn_label" />
+
+        <Button
+            android:id="@+id/singleInstanceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/single_instance_btn_label" />
+
+        <Button
+            android:id="@+id/singleInstancePerTaskBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/single_instance_per_task_btn_label" />
+
+    </LinearLayout>
 
 </LinearLayout>

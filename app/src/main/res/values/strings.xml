@@ -13,4 +13,5 @@
     <string name="single_instance_per_task_btn_label">Single Instance Per Task</string>
     <string name="single_instance_btn_label">Single Instance</string>
     <string name="single_task_btn_label">Signel Task</string>
+    <string name="type_here_hint">type here</string>
 </resources>

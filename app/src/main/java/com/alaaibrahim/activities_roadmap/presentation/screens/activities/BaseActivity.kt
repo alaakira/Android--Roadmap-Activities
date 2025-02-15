@@ -14,6 +14,7 @@ abstract class BaseActivity : AppCompatActivity(){
 
     private val creationDate = Date().time
 
+    protected var activityState: ActivityState? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,7 @@ abstract class BaseActivity : AppCompatActivity(){
         Loggers.logI(primaryTag, Loggers.ACTIVITY_TASK_ID_LOGGER_TAG, taskId.toString())
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.CREATED.getProcessName())
+        activityState = ActivityState.CREATED
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -30,6 +32,7 @@ abstract class BaseActivity : AppCompatActivity(){
             primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.INTENT_RECEIVED.getProcessName()
         )
+        activityState = ActivityState.INTENT_RECEIVED
     }
 
     override fun onStart() {
@@ -37,30 +40,35 @@ abstract class BaseActivity : AppCompatActivity(){
         TaskCounter.printCurrentTask(taskId)
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.STARTED.getProcessName())
+        activityState = ActivityState.STARTED
     }
 
     override fun onResume() {
         super.onResume()
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.RESUMED.getProcessName())
+        activityState = ActivityState.RESUMED
     }
 
     override fun onPause() {
         super.onPause()
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.PAUSED.getProcessName())
+        activityState = ActivityState.PAUSED
     }
 
     override fun onStop() {
         super.onStop()
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.STOPPED.getProcessName())
+        activityState = ActivityState.STOPPED
     }
 
     override fun onRestart() {
         super.onRestart()
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.RESTARTED.getProcessName())
+        activityState = ActivityState.RESTARTED
     }
 
     override fun onDestroy() {
@@ -74,6 +82,7 @@ abstract class BaseActivity : AppCompatActivity(){
         TaskCounter.printCurrentTask(-1)
         Loggers.logI(primaryTag, Loggers.ACTIVITY_LIFECYCLE_LOGGER_TAG,
             ActivityState.DESTROYED.getProcessName())
+        activityState = ActivityState.DESTROYED
     }
 
 }
