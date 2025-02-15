@@ -37,6 +37,7 @@
         <activity
             android:name=".presentation.screens.activities.activity_a.ActivityA"
             android:exported="true"
+            android:configChanges="orientation|screenLayout|screenSize"
             android:label="@string/activity_a_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

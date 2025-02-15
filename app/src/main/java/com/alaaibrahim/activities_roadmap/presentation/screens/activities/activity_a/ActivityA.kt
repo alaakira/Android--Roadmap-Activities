@@ -2,7 +2,9 @@ package com.alaaibrahim.activities_roadmap.presentation.screens.activities.activ
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.viewModels
@@ -24,6 +26,8 @@ class ActivityA: BaseActivity() {
     }
 
     override val primaryTag: String = javaClass.simpleName
+
+    private val rotationEnabled = true
 
     init {
         Loggers.logI(primaryTag, Loggers.ACTIVITY_SAVED_STATE_LOGGER_TAG, "init block")
@@ -91,5 +95,12 @@ class ActivityA: BaseActivity() {
                 val intent = SingleInstancePerTaskActivity.getIntent(this)
                 startActivity(intent)
             }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        Log.i("CONFIG CHANGES", newConfig.orientation.toString())
+        if (rotationEnabled.not())
+            newConfig.orientation = Configuration.ORIENTATION_LANDSCAPE
+        super.onConfigurationChanged(newConfig)
     }
 }
